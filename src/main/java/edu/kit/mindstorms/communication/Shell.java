@@ -15,9 +15,7 @@ public class Shell {
 			while (!quit) {
 				System.out.print("> ");
 				if (scanner.hasNext()) {
-					String input = scanner.nextLine();
-					quit = evaluate(input);
-//					break;
+					quit = evaluate(scanner.nextLine());
 				}
 			}
 		} catch (Exception e) {

@@ -16,8 +16,8 @@ public class ComModule {
 	private final Command<Boolean> requestStatus;
 
 	public ComModule(URL baseUrl) {
-		requestElevator = new RequestElevator(getCommandUrl(baseUrl, "go_down"));
-		moveElevatorDown = new MoveElevatorDown(getCommandUrl(baseUrl, "go_up"));
+		requestElevator = new RequestElevator(getCommandUrl(baseUrl, "go_up"));
+		moveElevatorDown = new MoveElevatorDown(getCommandUrl(baseUrl, "go_down"));
 		requestStatus = new RequestStatus(getCommandUrl(baseUrl, "status"));
 	}
 

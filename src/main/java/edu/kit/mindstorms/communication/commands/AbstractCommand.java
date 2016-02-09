@@ -26,7 +26,7 @@ public abstract class AbstractCommand<T> implements Command<T> {
 	}
 
 	protected String doGet() throws IOException {
-		URLConnection connection = commandUrl.openConnection();
+		URLConnection connection = getAdjustedURL().openConnection();
 		connection.setRequestProperty("Accept-Charset", CHARSET);
 		InputStream response = connection.getInputStream();
 		BufferedReader reader = new BufferedReader(new InputStreamReader((response)));
@@ -38,6 +38,11 @@ public abstract class AbstractCommand<T> implements Command<T> {
 		}
 
 		return rspns;
+	}
+	
+	// Override to add parameters
+	protected URL getAdjustedURL() {
+		return commandUrl;
 	}
 
 }

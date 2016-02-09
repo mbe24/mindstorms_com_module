@@ -26,7 +26,7 @@ public class ComModule {
 		try {
 			return new URL(baseUrl.toString() + "/" + command);
 		} catch (MalformedURLException e) {
-			throw new IllegalStateException("programming error, please revise hard coded URLs");
+			throw new IllegalStateException("programming error, please revise hard coded URL");
 		}
 	}
 

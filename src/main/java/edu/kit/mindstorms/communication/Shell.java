@@ -58,7 +58,7 @@ public class Shell {
 		}
 
 		long end = System.nanoTime() - start;
-		System.out.println("Time (ms): " + Double.valueOf(end) / 1000000);
+		System.out.println("Time (ms): " + Double.valueOf(end) / 1_000_000);
 		
 		return quit;
 	}

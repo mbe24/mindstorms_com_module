@@ -11,7 +11,7 @@ import java.util.GregorianCalendar;
 public class GetStartTime extends AbstractCommand<Calendar> {
 
 	private static final String TIME_FORMAT = "HH:mm:ss";
-	private static final SimpleDateFormat sdf = new SimpleDateFormat(TIME_FORMAT);
+	private static final SimpleDateFormat DATA_FORMAT = new SimpleDateFormat(TIME_FORMAT);
 
 	public GetStartTime(URL commandUrl) {
 		super(commandUrl);
@@ -22,7 +22,7 @@ public class GetStartTime extends AbstractCommand<Calendar> {
 		String response = doGet();
 
 		try {
-			Date date = sdf.parse(response);
+			Date date = DATA_FORMAT.parse(response);
 			Calendar calendar = GregorianCalendar.getInstance();
 			calendar.setTime(date);
 			return calendar;

@@ -1,11 +1,14 @@
 package edu.kit.mindstorms.communication;
 
 import java.io.IOException;
+import java.text.SimpleDateFormat;
+import java.util.Calendar;
 import java.util.Scanner;
 
 public class Shell {
 
 	private static ComModule com;
+	private static final SimpleDateFormat sdf = new SimpleDateFormat("HH:mm:ss");
 
 	public static void main(String[] args) {
 		com = Communication.getModule();
@@ -47,6 +50,12 @@ public class Shell {
 			System.out.println("Requested elevator status");
 			System.out.println("Response: " + response);
 			break;
+		case "TIME":
+			System.out.println("Starting request...");
+			Calendar c = com.getStartTime();
+			System.out.println("Requested start time");
+			System.out.println("Time: " + sdf.format(c.getTime()));
+			break;
 		case "Q":
 		case "QUIT":
 		case "EXIT":
@@ -59,7 +68,7 @@ public class Shell {
 
 		long end = System.nanoTime() - start;
 		System.out.println("Time (ms): " + Double.valueOf(end) / 1_000_000);
-		
+
 		return quit;
 	}
 
